@@ -1,7 +1,12 @@
+import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
+
 /**
  * DTO de entrada para crear un Example.
- * La validación se puede añadir con class-validator.
  */
 export class CreateExampleDto {
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(1)
+  @MaxLength(255)
   name!: string;
 }
